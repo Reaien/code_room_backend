@@ -2,6 +2,8 @@ package com.code_room_backend.backend.model;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 
 @Entity
 @Table(name = "users")
@@ -11,18 +13,19 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
+    private String firstName;
+   
+    @Column(nullable = false)
+    private String lastName;
+
     @Column(nullable = false, unique = true)
     private String email;
 
     @Column(nullable = false)
     private String password;
 
-    @Column(nullable = false)
-    private String firstName;
-
-    @Column(nullable = false)
-    private String lastName;
-
+    @CreationTimestamp
     @Column(nullable = false)
     private LocalDateTime createdAt;
 
@@ -30,10 +33,10 @@ public class User {
 
     public User(Long id, String email, String password, String firstName, String lastName, LocalDateTime createdAt) {
         this.id = id;
-        this.email = email;
-        this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.email = email;
+        this.password = password;
         this.createdAt = createdAt;
     }
 
