@@ -1,4 +1,4 @@
-package com.code_room_backend.backend;
+package com.code_room_backend.backend.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
